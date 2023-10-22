@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import App from './app'
+
 // mount function : 초기 렌더링을 담당
 const mount = (el) => {
-  ReactDOM.render(<h1>This is the very beginning</h1>, el);
+  ReactDOM.render(<App />, el);
 };
 
 // in dev mode (=isolated environment)
