@@ -1,5 +1,6 @@
 const {merge} = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
 const commonConfig = require('./webpack.common')
 
 const devConfig = {
@@ -11,6 +12,15 @@ const devConfig = {
         }
     },
     plugins: [
+        new ModuleFederationPlugin({
+            name: 'marketing', // like a global variable
+            filename: 'remoteEntry.js',
+            exposes: {
+                './MarketingApp': './src/bootstrap' 
+                // container에서 import문으로 접근하는 경로: 로드할 파일
+            },
+
+        }),
         new HtmlWebpackPlugin({
             template: './public/index.html'
         })
