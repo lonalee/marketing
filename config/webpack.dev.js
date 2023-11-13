@@ -19,6 +19,7 @@ const devConfig = {
                 './MarketingApp': './src/bootstrap' 
                 // container에서 import문으로 접근하는 경로: 로드할 파일
             },
+            shared: ['react','react-dom']
 
         }),
         new HtmlWebpackPlugin({
